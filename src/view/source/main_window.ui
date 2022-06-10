@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1083</width>
+    <height>596</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Reglas Firewall</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>COMIENCE A CREAR SUS NUEVAS REGLAS FIREWALL</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>- Clic en Nueva regla para instalar reglas IP o MAC. Puede presionar ALT+N (atajo) para acceder a la lista desplegable de la opciòn.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>- Clic en Eliminar regla para poder eliminar una regla ya instalada. Puede presionar ALT+E (atajo) para acceder a la lista desplegable de la opciòn.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>- Configurar siempre IP/MAC de origen y destino antes de hacer clic en &quot;Aplicar&quot;.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>- En las 2 opciones anteriores en susrepectivos cuadros de diàlogo puede desplazarse con el tabulador por las diferentes opciones.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>- Clic en ayuda para ver informaciòn sobre la UI, fecha de creaciòn, creador, etc. Puede presionar ALT+A (atajo) para acceder a la lista desplegable de la opciòn.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>NOTA: Configurar siempre igual reglas de IP y MAC. Por ejemplo, si configura 2 reglas IP debe configurar 2 reglas MAC o viceversa.</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1083</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuNueva_regla">
+    <property name="title">
+     <string>&amp;Nueva regla</string>
+    </property>
+    <addaction name="open_ip_menu"/>
+    <addaction name="open_mac_menu"/>
+   </widget>
+   <widget class="QMenu" name="menuEliminar_regla">
+    <property name="title">
+     <string>&amp;Eliminar regla</string>
+    </property>
+    <addaction name="actionIP_2"/>
+    <addaction name="actionMAC_2"/>
+   </widget>
+   <widget class="QMenu" name="menu_Ayuda">
+    <property name="title">
+     <string>&amp;Ayuda</string>
+    </property>
+    <addaction name="actionA_cerca_de"/>
+   </widget>
+   <addaction name="menuNueva_regla"/>
+   <addaction name="menuEliminar_regla"/>
+   <addaction name="menu_Ayuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="open_ip_menu">
+   <property name="text">
+    <string>IP</string>
+   </property>
+   <property name="toolTip">
+    <string>Nueva regla IP</string>
+   </property>
+  </action>
+  <action name="open_mac_menu">
+   <property name="text">
+    <string>MAC</string>
+   </property>
+   <property name="toolTip">
+    <string>Nueva regla MAC</string>
+   </property>
+  </action>
+  <action name="actionIP_2">
+   <property name="text">
+    <string>Eliminar IP</string>
+   </property>
+   <property name="toolTip">
+    <string>Eliminar regla IP</string>
+   </property>
+  </action>
+  <action name="actionMAC_2">
+   <property name="text">
+    <string>Eliminar MAC</string>
+   </property>
+   <property name="toolTip">
+    <string>Eliminar regla MAC</string>
+   </property>
+  </action>
+  <action name="actionA_cerca_de">
+   <property name="text">
+    <string>A&amp;bout..</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>open_ip_menu</sender>
+   <signal>triggered()</signal>
+   <receiver>open_ip_menu</receiver>
+   <slot>hover()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionA_cerca_de</sender>
+   <signal>triggered()</signal>
+   <receiver>actionA_cerca_de</receiver>
+   <slot>hover()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>open_mac_menu</sender>
+   <signal>triggered()</signal>
+   <receiver>open_mac_menu</receiver>
+   <slot>hover()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionIP_2</sender>
+   <signal>destroyed()</signal>
+   <receiver>open_ip_menu</receiver>
+   <slot>deleteLater()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
