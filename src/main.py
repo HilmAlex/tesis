@@ -27,7 +27,6 @@ class MiTopo(Topo):
         s5 = self.addSwitch('sw5')
         s6 = self.addSwitch('sw6')
         s7 = self.addSwitch('sw7')
-    
 
         self.addLink(h1, s3)
         self.addLink(h2, s3)

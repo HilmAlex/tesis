@@ -1,7 +1,5 @@
 import json
 import os
-import time
-import traceback
 
 cwd = os.getcwd()
 ip_rules_path = f'{cwd}/src/data/initIPRules.json'
@@ -19,17 +17,22 @@ def write(path, new_data):
         json_data = json.dumps(new_data, indent=4)
         out_file.write(json_data)
 
-def read_ip_rules(new_data):
-    write(ip_rules_path)
+def read_json(path):
+    json_data = read(path)
+    return json_data
 
-def read_mac_rules():
-    mac_rules = read(mac_rules_path)
-    return mac_rules
-
-def write_ip_rules():
-    ip_rules = write(ip_rules_path)
+def read_ip_rules():
+    ip_rules = read_json(ip_rules_path)
     return ip_rules
 
-def write_mac_rules():
-    mac_rules = write(mac_rules_path)
+def read_mac_rules():
+    mac_rules = read_json(ip_rules_path)
+    return mac_rules
+
+def write_ip_rules(new_data):
+    ip_rules = write(ip_rules_path,new_data)
+    return ip_rules
+
+def write_mac_rules(new_data):
+    mac_rules = write(mac_rules_path,new_data)
     return mac_rules
