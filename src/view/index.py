@@ -1,15 +1,18 @@
 from random import random
 import sys
-
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
 
+print(sys.path)
+
+sys.path.append('/home/alex/titulation')
+
 import json
 import os
-from view.build.IPRules import Ui_IPRules
-from view.build.MACRules import Ui_MACRules
-from view.build.main_window import Ui_MainWindow
+from view import Ui_IPRules
+from view import Ui_MACRules
+from view import Ui_MainWindow
 
 cwd = os.getcwd()
 ip_rules_path = f'{cwd}/src/data/initIPRules.json'
