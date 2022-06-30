@@ -1,5 +1,5 @@
 #!/bin/sh
-python3 src/main.py &
+python3 src/view/index.py &
 
 ./pox/pox.py forwarding.l2_learning misc.myFirewall &
 
