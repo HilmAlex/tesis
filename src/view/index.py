@@ -1,18 +1,13 @@
-from random import random
 import sys
+import json
+import os
+from random import random
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
-
-print(sys.path)
-
-sys.path.append('/home/alex/titulation')
-
-import json
-import os
-from view import Ui_IPRules
-from view import Ui_MACRules
-from view import Ui_MainWindow
+from build.IPRules import Ui_IPRules
+from build.MACRules import Ui_MACRules
+from build.main_window import Ui_MainWindow
 
 cwd = os.getcwd()
 ip_rules_path = f'{cwd}/src/data/initIPRules.json'
@@ -72,12 +67,12 @@ class Window(QMainWindow, Ui_MainWindow):
         current_ip_rules = read_ip_rules()
 
         new_ip_rules = {
-            "name": random.random(),
+            "name": random(),
             "from": ip_from,
             "to": ip_to
         }
-
-        current_ip_rules.add(new_ip_rules)
+        
+        current_ip_rules.append(new_ip_rules)
 
         write_ip_rules(current_ip_rules)
     
@@ -100,7 +95,7 @@ class Window(QMainWindow, Ui_MainWindow):
             "to": mac_to
         }
 
-        current_mac_rules.add(new_mac_rules)
+        current_mac_rules.append(new_mac_rules)
 
         write_mac_rules(current_mac_rules)
 
