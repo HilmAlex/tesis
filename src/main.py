@@ -2,7 +2,7 @@ from mininet.topo import Topo
 from mininet.log import info, setLogLevel
 from PyQt5.QtWidgets import QApplication
 import sys
-from titulation.src.view.index import Window
+from view import Window
 
 class MiTopo(Topo):
     
