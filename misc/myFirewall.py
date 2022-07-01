@@ -25,9 +25,6 @@ class Firewall(EventMixin):
         ip_rules_listener.start()
         mac_rules_listener.start()
 
-    def say_hello(self):
-        print('Hola')
-
     def _handle_ConnectionUp(self, event):
         log.info("Installing rules")
         self.read_rules()
@@ -46,29 +43,27 @@ class Firewall(EventMixin):
 
     def add_rules(self, event, ip_rules, mac_rules):
         for ip_rule in ip_rules:
-            self.add_ip_rule(event, msg, ip_rule['from'], ip_rule['to'])
+            self.add_ip_rule(event, ip_rule['from'], ip_rule['to'])
         
         for mac_rule in mac_rules:
-            msg = of.ofp_flow_mod()
-            print( mac_rule)
 
-            self.add_mac_rule(event, msg, mac_rule['from'], mac_rule['to'])
+            self.add_mac_rule(event, mac_rule['from'], mac_rule['to'])
         
-    def add_ip_rule(self, event, msg, ip_rule_from, ip_rule_to):
+    def add_ip_rule(self, event, ip_rule_from, ip_rule_to):
         msg = of.ofp_flow_mod()
         msg.match = of.ofp_match(dl_type = 0x800, nw_proto = pkt.ipv4.ICMP_PROTOCOL)      
         msg.match.nw_src = IPAddr(ip_rule_from)
         msg.match.nw_dst = IPAddr(ip_rule_to) 
         event.connection.send(msg) 
     
-    def delete_ip_rule(self, event, msg, ip_rule_from, ip_rule_to):
+    def delete_ip_rule(self, event, ip_rule_from, ip_rule_to):
         msg = of.ofp_flow_mod(command=of.OFPFC_DELETE)
         msg.match = of.ofp_match(dl_type = 0x800, nw_proto = pkt.ipv4.ICMP_PROTOCOL)      
         msg.match.nw_src = IPAddr(ip_rule_from)
         msg.match.nw_dst = IPAddr(ip_rule_to) 
         event.connection.send(msg) 
 
-    def add_mac_rule(self, event, msg, mac_rule_from, mac_rule_to):
+    def add_mac_rule(self, event, mac_rule_from, mac_rule_to):
         msg = of.ofp_flow_mod()
         msg.match = of.ofp_match()      
         msg.match.dl_src = EthAddr(mac_rule_from)
